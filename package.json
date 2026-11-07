@@ -1,0 +1,139 @@
+{
+  "name": "@0sfs/replay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Flight timelines and the /replay/ page: real flights from public ADS-B data, played back over the globe on any device.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    "./timeline": {
+      "source": "./src/timeline.ts",
+      "default": "./src/timeline.ts"
+    },
+    "./timelineIndex": {
+      "source": "./src/timelineIndex.ts",
+      "default": "./src/timelineIndex.ts"
+    },
+    "./readsbTrace": {
+      "source": "./src/readsbTrace.ts",
+      "default": "./src/readsbTrace.ts"
+    },
+    "./kinematics": {
+      "source": "./src/kinematics.ts",
+      "default": "./src/kinematics.ts"
+    },
+    "./trackInputs": {
+      "source": "./src/trackInputs.ts",
+      "default": "./src/trackInputs.ts"
+    },
+    "./assembleTimeline": {
+      "source": "./src/assembleTimeline.ts",
+      "default": "./src/assembleTimeline.ts"
+    },
+    "./replayClock": {
+      "source": "./src/replayClock.ts",
+      "default": "./src/replayClock.ts"
+    },
+    "./replayFormat": {
+      "source": "./src/replayFormat.ts",
+      "default": "./src/replayFormat.ts"
+    },
+    "./trackPose": {
+      "source": "./src/trackPose.ts",
+      "default": "./src/trackPose.ts"
+    },
+    "./replayController": {
+      "source": "./src/replayController.ts",
+      "default": "./src/replayController.ts"
+    },
+    "./skyTime": {
+      "source": "./src/skyTime.ts",
+      "default": "./src/skyTime.ts"
+    },
+    "./replayScene": {
+      "source": "./src/replayScene.ts",
+      "default": "./src/replayScene.ts"
+    },
+    "./replayMapOverlay": {
+      "source": "./src/replayMapOverlay.ts",
+      "default": "./src/replayMapOverlay.ts"
+    },
+    "./ProfileChart": {
+      "source": "./src/ProfileChart.tsx",
+      "default": "./src/ProfileChart.tsx"
+    },
+    "./ReplayApp": {
+      "source": "./src/ReplayApp.tsx",
+      "default": "./src/ReplayApp.tsx"
+    },
+    "./createReplayApp": {
+      "source": "./src/createReplayApp.tsx",
+      "default": "./src/createReplayApp.tsx"
+    },
+    "./replayHost": {
+      "source": "./src/replayHost.ts",
+      "default": "./src/replayHost.ts"
+    },
+    "./replayTabs": {
+      "source": "./src/replayTabs.ts",
+      "default": "./src/replayTabs.ts"
+    },
+    "./replayViewTools": {
+      "source": "./src/replayViewTools.ts",
+      "default": "./src/replayViewTools.ts"
+    },
+    "./replay.css": "./src/replay.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build:timeline": "node scripts/build-timeline.ts",
+    "fetch:adsblol": "node scripts/fetch-adsblol-trace.ts"
+  },
+  "peerDependencies": {
+    "@0sfs/aircraft": "0.1.0",
+    "@0sfs/controls": "0.1.0",
+    "@0sfs/ground-contact": "0.1.0",
+    "@babylonjs/core": "8.56.2",
+    "@babylonjs/loaders": "8.56.2",
+    "@foss-earth/renderer": "0.1.0",
+    "@foss-earth/ui": "0.1.0",
+    "foss-earth": "0.1.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "peerDependenciesMeta": {
+    "@0sfs/aircraft": {
+      "optional": true
+    },
+    "@0sfs/controls": {
+      "optional": true
+    },
+    "@0sfs/ground-contact": {
+      "optional": true
+    },
+    "@babylonjs/core": {
+      "optional": true
+    },
+    "@babylonjs/loaders": {
+      "optional": true
+    },
+    "@foss-earth/renderer": {
+      "optional": true
+    },
+    "@foss-earth/ui": {
+      "optional": true
+    },
+    "foss-earth": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "vitest": "4.1.6"
+  }
+}

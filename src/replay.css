@@ -1,0 +1,392 @@
+/*
+ * The /replay/ page. Its windows are FOSS Earth's, dark unless the page asks
+ * for light; these colours follow them. The two chart series are the first two
+ * of the categorical palette, stepped for each surface and checked for
+ * colour-vision differences.
+ */
+:root {
+  --replay-text: rgba(241, 245, 249, 0.94);
+  --replay-muted: #94a3b8;
+  --replay-border: rgba(100, 116, 139, 0.45);
+  --replay-grid: rgba(148, 163, 184, 0.16);
+  --replay-band: rgba(148, 163, 184, 0.1);
+  --replay-control: rgba(30, 41, 59, 0.9);
+  --replay-control-hover: rgba(51, 65, 85, 0.95);
+  --replay-series-1: #3987e5;
+  --replay-series-2: #d95926;
+  --replay-warning: #fbbf24;
+  --replay-error: #f87171;
+}
+
+:root[data-theme="light"] {
+  --replay-text: #0f172a;
+  --replay-muted: #475569;
+  --replay-border: rgba(71, 85, 105, 0.3);
+  --replay-grid: rgba(15, 23, 42, 0.1);
+  --replay-band: rgba(15, 23, 42, 0.06);
+  --replay-control: #f1f5f9;
+  --replay-control-hover: #e2e8f0;
+  --replay-series-1: #2a78d6;
+  --replay-series-2: #eb6834;
+  --replay-warning: #92400e;
+  --replay-error: #b91c1c;
+}
+
+.replay-root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #04060a;
+  color: var(--replay-text);
+  font: 13px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.replay-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  outline: none;
+}
+
+.replay-overlay {
+  position: absolute;
+  inset: 0;
+  /* Under the toolbar, whose layer is 30, as /fly/'s windows are. */
+  z-index: 20;
+  /* The windows opt back in; the rest of the screen is the view. */
+  pointer-events: none;
+}
+
+.replay-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  color: var(--replay-text);
+}
+
+.replay-tab h1,
+.replay-tab h2,
+.replay-tab p {
+  margin: 0;
+}
+
+.replay-heading h1 {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.replay-heading p,
+.replay-muted {
+  color: var(--replay-muted);
+}
+
+.replay-tab h2 {
+  font-size: 13px;
+  font-weight: 650;
+  margin-bottom: 4px;
+}
+
+.replay-tab a {
+  color: inherit;
+}
+
+.replay-status {
+  padding: 6px 8px;
+  border: 1px solid var(--replay-border);
+  border-radius: 6px;
+}
+
+.replay-status--warning { border-color: var(--replay-warning); }
+.replay-status--error { border-color: var(--replay-error); }
+
+.replay-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.replay-transport {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.replay-tab button,
+.replay-rate select {
+  min-height: 32px;
+  border: 1px solid var(--replay-border);
+  border-radius: 6px;
+  background: var(--replay-control);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.replay-tab button:hover,
+.replay-rate select:hover {
+  background: var(--replay-control-hover);
+}
+
+.replay-play {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  padding: 0;
+}
+
+.replay-play path {
+  fill: currentColor;
+}
+
+.replay-rate select {
+  padding: 0 6px;
+}
+
+.replay-time {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-time strong {
+  font-size: 15px;
+}
+
+.replay-time span {
+  color: var(--replay-muted);
+  font-size: 12px;
+}
+
+.replay-scrubber {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--replay-series-1);
+}
+
+.replay-moment {
+  min-height: 1.4em;
+}
+
+.replay-segmented {
+  display: flex;
+  gap: 4px;
+}
+
+.replay-segmented button {
+  flex: 1 1 0;
+  min-height: 28px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-segmented button[aria-pressed="true"] {
+  border-color: var(--replay-text);
+}
+
+.replay-segmented--wrap {
+  flex-wrap: wrap;
+}
+
+/* Two lines, so the chart below does not jump as the words change. */
+.replay-said {
+  min-height: 2.8em;
+}
+
+.replay-radio section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.replay-radio__start,
+.replay-radio__offset {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.replay-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.replay-profile__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-profile__time {
+  color: var(--replay-muted);
+}
+
+.replay-profile__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.replay-profile__key span {
+  color: var(--replay-muted);
+}
+
+.replay-profile__key line {
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.replay-profile__plot {
+  display: block;
+  max-width: 100%;
+  touch-action: none;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.replay-series-1 { stroke: var(--replay-series-1); }
+.replay-series-2 { stroke: var(--replay-series-2); }
+
+.replay-profile__line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.replay-profile__grid {
+  stroke: var(--replay-grid);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.replay-profile__axis {
+  fill: var(--replay-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-profile__highlight {
+  fill: var(--replay-band);
+}
+
+.replay-profile__event {
+  stroke: var(--replay-muted);
+  stroke-width: 1;
+}
+
+.replay-profile__hover {
+  stroke: var(--replay-muted);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.replay-profile__cursor {
+  stroke: var(--replay-text);
+  stroke-width: 1.5;
+}
+
+.replay-readings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.replay-readings dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.replay-readings dt {
+  color: var(--replay-muted);
+  font-size: 11px;
+}
+
+.replay-readings dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-badge {
+  margin-left: 4px;
+  padding: 0 4px;
+  border: 1px solid var(--replay-border);
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.replay-moments,
+.replay-flights,
+.replay-sources ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.replay-moments {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.replay-moments button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 10px;
+  width: 100%;
+  padding: 6px 8px;
+  border-color: transparent;
+  background: transparent;
+  text-align: left;
+}
+
+.replay-moments li[aria-current] button {
+  border-color: var(--replay-border);
+  background: var(--replay-control);
+}
+
+.replay-moments__time {
+  color: var(--replay-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-moments__detail {
+  grid-column: 2;
+  color: var(--replay-muted);
+}
+
+.replay-flights a {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid var(--replay-border);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.replay-flights a[aria-current] {
+  border-color: var(--replay-text);
+}
+
+.replay-sources section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.replay-sources li + li {
+  margin-top: 6px;
+}

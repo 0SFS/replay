@@ -1,0 +1,145 @@
+{
+  "id": "N722BD-2026-11-01",
+  "title": "Learjet 60 N722BD",
+  "subtitle": "Austin, Texas, toward North Eleuthera, Bahamas, 1 November 2026. The flight ended in Palm Beach County, Florida; nine people died.",
+  "timeZone": "America/New_York",
+  "start": "2026-11-01T15:32:00Z",
+  "highlight": { "start": "2026-11-01T17:47:30Z", "end": "2026-11-01T17:49:33.16Z" },
+  "license": {
+    "id": "ODbL-1.0",
+    "url": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "attribution": "Contains ADS-B data from adsb.lol, made available under the Open Database License 1.0. This timeline is a database derived from it and is released under the same licence."
+  },
+  "sources": [
+    {
+      "id": "adsblol",
+      "name": "adsb.lol history, 1 November 2026 (readsb trace of a9ab17)",
+      "url": "https://github.com/adsblol/globe_history_2026/releases/tag/v2026.11.01-planes-readsb-staging-0",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "adsb.lol and the people who feed it",
+      "retrieved": "2026-11-02",
+      "note": "What the aircraft's own transponder broadcast (ADS-B), as receivers on the ground heard it: GNSS position, pressure altitude, GNSS altitude, ground speed, track and vertical rate, about twice a second at the end. The staging release was used: the day's production release was not yet published. Fetch it again with: node scripts/fetch-adsblol-trace.ts 2026-11-01 a9ab17"
+    },
+    {
+      "id": "commons-zma",
+      "name": "Miami Center (ZMA) and N722BD, the last two minutes (Wikimedia Commons)",
+      "url": "https://commons.wikimedia.org/wiki/File:Chilling_Audio_Captures_The_Last_Moments_of_Learjet_60_Plane_Crash.opus",
+      "license": "Public domain",
+      "attribution": "Federal Aviation Administration air traffic control audio, posted by SpaceCoastDaily (YouTube eqVFv7WAdJE) and uploaded to Wikimedia Commons",
+      "retrieved": "2026-11-02",
+      "note": "116.3 s of the Miami Center frequency, the same clip AirNav Radar and others posted. Wikimedia Commons marks it public domain as a work of the FAA and of the State of Florida (PD-USGov-FAA, PD-FLGov). The replay plays it from Wikimedia's servers, in Ogg Opus, or the MP3 Commons makes of it where Opus does not play."
+    },
+    {
+      "id": "captions-x",
+      "name": "Captions of the same recording, in a repost on X by hokkori_buzz",
+      "url": "https://x.com/hokkori_buzz/status/2117086213320655137",
+      "retrieved": "2026-11-02",
+      "note": "The video's audio matches the Commons clip to 0.03 s. Its burned-in captions, one word at a time, were read with on-device text recognition and joined into lines; spelling and punctuation were tidied. They are someone else's hearing of the recording, and nobody here has checked them against it word by word."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "N722BD",
+      "label": "N722BD (ADS-B)",
+      "format": "readsb",
+      "file": "build/sources/adsblol/2026-11-01/trace_full_a9ab17.json",
+      "sources": ["adsblol"],
+      "from": "2026-11-01T15:32:00Z",
+      "aircraft": { "registration": "N722BD", "type": "LJ60", "description": "Bombardier Learjet 60" },
+      "extrapolate": { "groundFt": 17, "geoidFt": -91 },
+      "model": {
+        "definition": "../Learjet-60/aircraft.json",
+        "lod": "hd",
+        "note": "The model is a Learjet 60 in another aircraft's black and silver paint (N838RC), not N722BD's."
+      }
+    }
+  ],
+  "events": [
+    { "at": "2026-11-01T15:32:26.89Z", "kind": "phase", "title": "Taxi at Austin", "detail": "Squawking 4021, the code it keeps to the end." },
+    { "at": "2026-11-01T15:36:58Z", "kind": "phase", "title": "Takeoff roll", "detail": "Northbound. Ground speed goes from 13 to 105 kt in 15 s." },
+    { "at": "2026-11-01T15:37:25Z", "kind": "phase", "title": "Climb begins", "detail": "The transponder reported airborne from 15:37:12 UTC; altitude starts to rise at 15:37:25." },
+    { "at": "2026-11-01T16:00:29Z", "kind": "phase", "title": "Level at 41,000 ft", "detail": "Pressure altitude holds within 50 ft of FL410 for the next 96 minutes, east and then southeast, along the Gulf coast and across the Gulf of Mexico to Florida." },
+    { "at": "2026-11-01T17:36:39Z", "kind": "phase", "title": "Descent to 35,000 ft", "detail": "At about 1,400 ft/min, turning left from 115° to about 050°." },
+    { "at": "2026-11-01T17:41:03Z", "kind": "phase", "title": "Level at 35,000 ft", "detail": "Track about 051°, ground speed 435 to 475 kt." },
+    { "at": "2026-11-01T17:46:00Z", "kind": "observation", "title": "Altitude starts to oscillate", "detail": "The reported vertical rate swings between climb and descent, and the swings grow: +320 and −320 ft/min at 17:46:07 and 17:46:16, then −640, +960 and −704 ft/min at 17:47:25, 17:47:35 and 17:47:50. Where reports are close enough together to show them, the swings come 15 to 26 s apart. Pressure altitude stays between 34,950 and 35,075 ft until 17:48:01." },
+    { "at": "2026-11-01T17:47:03Z", "kind": "observation", "title": "Turn right toward 099°", "detail": "Track turns from 051° to 099° over about 70 s, about 0.7°/s, while the oscillation continues." },
+    { "at": "2026-11-01T17:48:01Z", "kind": "observation", "title": "Climb above 35,000 ft", "detail": "The next report comes 12.4 s later and 325 ft higher: about 1,500 ft/min. Ground speed rises from 435 to 445 kt." },
+    { "at": "2026-11-01T17:48:15Z", "kind": "observation", "title": "Highest point: 35,450 ft, then nose down", "detail": "The climb stops at 35,450 ft pressure altitude. In the next 24 s the vertical rate goes from zero to −20,900 ft/min, while the track stays between 099° and 102°: the aircraft is not turning." },
+    { "at": "2026-11-01T17:48:40Z", "kind": "observation", "title": "Turning right while descending at about 20,000 ft/min", "detail": "The descent rate holds near 20,000 ft/min for about 10 s while a right turn starts and tightens." },
+    { "at": "2026-11-01T17:48:48Z", "kind": "observation", "title": "Fastest: 507 kt ground speed", "detail": "Ground speed then falls as more of the speed goes into the descent." },
+    { "at": "2026-11-01T17:48:50.88Z", "kind": "observation", "title": "IDENT on", "detail": "The transponder's IDENT flag (SPI) is set: off in the report at 17:48:48.9, on at 17:48:50.9. It is set by pressing the transponder's IDENT button, usually when air traffic control asks, and stays on about 18 s." },
+    { "at": "2026-11-01T17:49:04.08Z", "kind": "observation", "title": "Descent rate beyond what ADS-B can report", "detail": "The reported vertical rate stays at −32,640 ft/min, the most an ADS-B message carries, from here on. Altitudes show the real rate: from 20,000 to 13,000 ft pressure altitude in 10 s, about 41,000 ft/min." },
+    { "at": "2026-11-01T17:49:12.52Z", "kind": "observation", "title": "IDENT off, then on again", "detail": "Off at 17:49:12.5 and on again by 17:49:14.6, so it was set a second time. It stays on to the last report." },
+    { "at": "2026-11-01T17:49:23.07Z", "kind": "observation", "title": "Pressure altitude stops at 8,750 ft", "detail": "Every report after this one gives 8,750 ft, while GNSS altitude keeps falling from 9,475 ft. The timeline keeps only the first of the repeats." },
+    { "at": "2026-11-01T17:49:26.57Z", "kind": "observation", "title": "Position integrity lost", "detail": "Navigation Integrity Category falls from 9 to 0: the transponder no longer vouches for its position." },
+    { "at": "2026-11-01T17:49:32.76Z", "kind": "observation", "title": "Last report", "detail": "GNSS altitude 325 ft, descending at more than 50,000 ft/min by GNSS altitude, ground speed 238 kt, track 290°, at 26.6327° N, 80.1127° W. GNSS altitude is measured from the WGS 84 ellipsoid, which here is 91 ft above sea level, so this is about 400 ft above the ground." },
+    { "at": "2026-11-01T17:47:30.74Z", "kind": "radio", "title": "Radio: moderate turbulence at FL350", "detail": "“Seven two two bravo delta, three five zero, moderate turbulence, plus or minus… Okay, now seven hundred, six hundred feet.” If the figures are vertical rates, they match the swings reported around then, 640 to 960 ft/min. Pressure altitude stays within 75 ft of 35,000 ft. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:47:44.23Z", "kind": "radio", "title": "Radio: “We're managing the ice”", "detail": "“Negative forty-seven degrees Celsius. We're managing the ice, but it is moderate turbulence. We're direct Freeport.” The track is turning right toward 099°, a line toward the Freeport VOR on Grand Bahama. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:08.38Z", "kind": "radio", "title": "Radio: precipitation, a climb to FL370 asked for", "detail": "“Roger, two bravo delta. And now we're picking up precipitation. We need to climb, um, three seven zero, able… Two bravo delta.” The aircraft is already climbing, 200 to 400 ft above 35,000 ft. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:15.79Z", "kind": "radio", "title": "Radio: cleared to climb to FL370", "detail": "Miami Center: “November seven two two bravo delta, roger. Climb and maintain flight level three seven zero. No further right than your present heading, for traffic.” The aircraft has just reached its highest point, 35,450 ft, at 17:48:15, and its nose is going down. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:22.10Z", "kind": "radio", "title": "Radio: the crew reads back FL370", "detail": "“Climb three seven zero, two bravo delta.” The aircraft is descending at 4,000 to 5,000 ft/min by now. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:24.55Z", "kind": "radio", "title": "Radio: “Mayday, mayday”", "detail": "“Seven two two bravo delta, we're descending, eight thousand. Mayday, mayday, we're descending ten thousand feet per minute.” The reported vertical rate passes 8,000 and then 10,000 ft/min at 17:48:27–28, about 1.5 s apart, as the two figures are in the recording. The recording is aligned by them. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:33.40Z", "kind": "radio", "title": "Radio: emergency, overspeed, 20,000 ft/min", "detail": "“Declaring emergency, seven two two bravo delta. We are in an overspeed condition, descending twenty thousand feet per minute.” The reported rate reaches 20,900 ft/min at 17:48:39, as the crew says it. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:48:54.61Z", "kind": "radio", "title": "Radio: “banking sixty degrees”", "detail": "“We are descending twenty-two thousand feet, and we are banking sixty degrees.” While this is said, the reported rate goes from 22,700 to 28,000 ft/min, and the bank a coordinated turn would need from 51 to 58°. If “twenty-two thousand feet” is the altitude rather than the rate, the recording would be about 8 s later here. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:49:13.80Z", "kind": "radio", "title": "Radio: the last words heard from the crew", "detail": "“Look outside! Holy f***, we're out of time.” The aircraft is passing about 16,000 ft. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:49:16.66Z", "kind": "radio", "title": "Radio: Miami Center calls, with no answer", "detail": "Center calls three times in the 9 s the recording has left; no answer is heard. The recording ends at about 17:49:26, about 6 s before the last ADS-B report. The time is the recording's, aligned with the ADS-B to within about 2 s." },
+    { "at": "2026-11-01T17:49:33.16Z", "kind": "note", "title": "Reaches the ground (extrapolated)", "detail": "Not reported. Continued from the last report at its ground speed (238 kt), turn rate (6.5°/s) and fitted descent rate (59,000 ft/min), the path reaches the ground 0.40 s later, about 50 m west-northwest of the last reported position. At 56,000 ft/min, the average over the last 4 s, it would take 0.43 s. The ground there is about 17 ft above sea level: −74 ft in GNSS altitude." }
+  ],
+  "audio": [
+    {
+      "id": "zma",
+      "label": "Miami Center frequency, the last two minutes",
+      "kind": "radio",
+      "files": [
+        { "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Chilling_Audio_Captures_The_Last_Moments_of_Learjet_60_Plane_Crash.opus", "type": "audio/ogg; codecs=\"opus\"" },
+        { "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/67/Chilling_Audio_Captures_The_Last_Moments_of_Learjet_60_Plane_Crash.opus/Chilling_Audio_Captures_The_Last_Moments_of_Learjet_60_Plane_Crash.opus.mp3", "type": "audio/mpeg" }
+      ],
+      "sources": ["commons-zma", "captions-x"],
+      "at": "2026-11-01T17:47:30Z",
+      "duration": 116.3,
+      "alignment": {
+        "method": "Aligned by the descent rates the crew called out, 8,000, 10,000, 20,000 and 22,000 ft/min, which match the vertical rate the aircraft reported at one offset. The recording has no silence longer than 1.4 s, and that one offset fits it from end to end, so it is taken to be uncut.",
+        "uncertaintyS": 2
+      },
+      "transcript": [
+        { "at": 0.74, "end": 9.68, "text": "Seven two two bravo delta, three five zero, moderate turbulence, plus or minus… Okay, now seven hundred, six hundred feet." },
+        { "at": 10.32, "end": 10.92, "text": "November…" },
+        { "at": 11.9, "end": 13.95, "text": "So, roger, say outside temperature." },
+        { "at": 14.23, "end": 19.97, "text": "Negative forty-seven degrees Celsius. We're managing the ice, but it is moderate turbulence. We're direct Freeport." },
+        { "at": 20.3, "end": 25.87, "text": "Okay, November seven two two bravo delta, roger. Let me know if you need anything else. I'm just working you in my airspace right now." },
+        { "at": 26.05, "end": 29.53, "text": "Thank you. If you have any better rides, uh, let us know. Two bravo delta." },
+        { "at": 29.87, "end": 37.6, "text": "November two bravo delta, uh, the ride should improve in my airspace. You're, uh, kinda far outside of it right now, and you can expect better rides ahead." },
+        { "at": 38.38, "end": 45.45, "text": "Roger, two bravo delta. And now we're picking up precipitation. We need to climb, um, three seven zero, able… Two bravo delta." },
+        { "at": 45.79, "end": 51.6, "text": "November seven two two bravo delta, roger. Climb and maintain flight level three seven zero. No further right than your present heading, for traffic." },
+        { "at": 52.1, "end": 54.27, "text": "Climb three seven zero, two bravo delta." },
+        { "at": 54.55, "end": 59.56, "text": "Seven two two bravo delta, we're descending, eight thousand. Mayday, mayday, we're descending ten thousand feet per minute." },
+        { "at": 60.24, "end": 62.9, "text": "November seven two two bravo delta, roger." },
+        { "at": 63.4, "end": 69.73, "text": "Declaring emergency, seven two two bravo delta. We are in an overspeed condition, descending twenty thousand feet per minute." },
+        { "at": 70.35, "end": 74.79, "text": "November seven two two bravo delta, altitude's your discretion. Let me know what you need." },
+        { "at": 75.7, "end": 80.76, "text": "[…] We're gonna crash into the ground. Seven two two bravo delta." },
+        { "at": 81.96, "end": 84.52, "text": "November two bravo delta, I'm here with you." },
+        { "at": 84.61, "end": 90.9, "text": "We are descending twenty-two thousand feet, and we are banking sixty degrees." },
+        { "at": 91.5, "end": 95.37, "text": "What is […] is your name?" },
+        { "at": 95.62, "end": 97.8, "text": "November two bravo delta, roger." },
+        { "at": 100.9, "end": 103.02, "text": "Look… we're gonna crash!" },
+        { "at": 103.8, "end": 105.32, "text": "Look outside! Holy f***, we're out of time." },
+        { "at": 106.66, "end": 108.26, "text": "November two bravo delta…" },
+        { "at": 109.25, "end": 111.23, "text": "November two bravo delta, how do you […]" },
+        { "at": 113.33, "end": 115.37, "text": "November two bravo delta, Miami […]" }
+      ],
+      "transcriptNote": "From another listener's captions, not checked word by word against the recording. […] marks words the captions leave out. Who is speaking is not marked: calls that begin “November seven two two bravo delta” are Miami Center's, and those that end with the call sign are the crew's.",
+      "note": "This recording holds the crew's emergency calls and the last words heard from them."
+    }
+  ],
+  "notes": [
+    "This is what the aircraft's transponder broadcast and ground receivers recorded. It is not radar data and not the flight data recorder. It does not say why the flight ended; the NTSB investigation will.",
+    "Times are when receivers heard each message, in UTC, with Eastern time (UTC−5) beside them.",
+    "The aircraft's attitude was not broadcast. The model is drawn at the flight-path angle and at the bank a coordinated turn would need, worked out from the path. In an upset these can be far from the real pitch and bank.",
+    "ADS-B cannot report a vertical rate beyond ±32,640 ft/min. The timeline adds a rate fitted to GNSS altitude, which shows the descent reaching about 50,000 ft/min.",
+    "Pressure altitude reads 8,750 ft in every report from 17:49:23 UTC while GNSS altitude falls to 325 ft. Flightradar24's data, which cannot be republished, shows the same. Whether the transponder kept sending a frozen value or the receiving networks held the last one is not known.",
+    "No autopilot mode or selected altitude was broadcast. The emergency code 7700 was not set; the emergency field reads \"none\" throughout.",
+    "The radio recording covers only the last two minutes, from about 17:47:30 UTC. In it the crew reports moderate turbulence, ice, precipitation, an overspeed and a 60° bank. No call about the flight controls is heard in the captions of it, though a few words are missing from them. Calls before 17:47:30 are not in it.",
+    "The last 0.40 s, from the last report at 17:49:32.76 UTC to the ground, is extrapolated, not reported: the path is continued at the last report's ground speed, turn rate and descent rate, and the readings say so. The ground's height there, about 17 ft above sea level, is the terrain the replay's globe draws (Mapterhorn; AWS Terrain Tiles agree within a foot); sea level, 91 ft below the WGS 84 ellipsoid here, is EGM2008's."
+  ]
+}
